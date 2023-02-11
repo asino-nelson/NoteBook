@@ -83,6 +83,10 @@ dependencies {
     // COROUTINES
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
+    // NAVIGATION
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
 
 }
 
