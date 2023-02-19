@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.notebook.note_features.presentationLayer.note.components.NoteItem
 import com.example.notebook.note_features.presentationLayer.note.components.OrderSection
+import com.example.notebook.note_features.presentationLayer.utils.Screens
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +34,7 @@ fun NoteScreen(
     Scaffold (
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screens.AddEditNoteScreen.route) },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
                 Icon(
@@ -84,7 +85,13 @@ fun NoteScreen(
                         note = note,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { },
+                            .clickable {
+                                       navController.navigate(
+                                           Screens.AddEditNoteScreen.route +
+                                                   "?noteId=${note.id}&noteColor=${note.color}"
+
+                                       )
+                            },
                         onDeleteClick = {
                             viewModel.onEvent(NotesEvent.DeleteNote(note))
                         }

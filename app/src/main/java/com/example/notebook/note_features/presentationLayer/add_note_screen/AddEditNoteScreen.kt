@@ -27,6 +27,7 @@ import com.example.notebook.note_features.domainLayer.model.Note
 import com.example.notebook.note_features.presentationLayer.add_note_screen.components.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import androidx.compose.material3.SnackbarHost as SnackbarHost1
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,7 +59,7 @@ fun AddEditNoteScreen(
 
                 }
                 is AddEditNoteViewModel.UiEvent.SaveNote-> {
-
+                    navController.navigateUp()
                 }
             }
         }
