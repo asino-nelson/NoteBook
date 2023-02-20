@@ -16,6 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.notebook.note_features.presentationLayer.note.components.NoteItem
 import com.example.notebook.note_features.presentationLayer.note.components.OrderSection
@@ -26,7 +27,7 @@ import com.example.notebook.note_features.presentationLayer.utils.Screens
 @Composable
 fun NoteScreen(
     navController: NavController,
-    viewModel: NotesViewModel
+    viewModel: NotesViewModel = hiltViewModel()
 ){
     val state = viewModel.state.value
     val scope = rememberCoroutineScope()

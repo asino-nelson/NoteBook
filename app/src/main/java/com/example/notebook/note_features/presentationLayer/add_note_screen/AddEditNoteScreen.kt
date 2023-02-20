@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.notebook.note_features.domainLayer.model.Note
 import com.example.notebook.note_features.presentationLayer.add_note_screen.components.TransparentHintTextField
@@ -35,7 +36,7 @@ import androidx.compose.material3.SnackbarHost as SnackbarHost1
 fun AddEditNoteScreen(
     navController:NavController,
     noteColor: Int,
-    viewModel: AddEditNoteViewModel
+    viewModel: AddEditNoteViewModel = hiltViewModel()
 ){
     val titleState = viewModel.noteTitle.value
     val contentState = viewModel.noteContent.value
